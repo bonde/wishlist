@@ -1,0 +1,9 @@
+#!/bin/bash
+
+GIT_TOPLEVEL=`git rev-parse --show-toplevel`
+
+cd $GIT_TOPLEVEL
+cp -f hooks/pre-commit .git/hooks/pre-commit
+
+echo;
+echo "Installed 1 hook."

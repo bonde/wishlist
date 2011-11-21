@@ -1,0 +1,16 @@
+#!/bin/bash
+
+GIT_TOPLEVEL=`git rev-parse --show-toplevel`
+
+cd $GIT_TOPLEVEL
+latexmk -pdf -silent -g oensker.tex
+
+if [ $? != 0 ]
+then
+    echo;
+    echo "Could not compile. Please write valid tex.";
+    exit -1;
+fi
+
+git add -f oensker.pdf
+exit 0
